@@ -1,0 +1,21 @@
+<div class="producto contenedor sombra text-center p-4">
+
+    <h5 class="titulo">
+        {{ producto?.nombre }}
+    </h5>
+
+    <img [src]="producto?.imagen" class="img-fluid imagen-producto" alt="Pastel">
+
+    <p class="descripcion">
+        {{ producto?.descripcion }}
+    </p>
+
+    <h4 class="precio">
+        ${{ producto?.precio }}
+    </h4>
+
+    <button class="btn btn-danger btn-carrito">
+        Agregar al carrito
+    </button>
+
+</div>
