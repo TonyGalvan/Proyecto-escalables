@@ -1,0 +1,28 @@
+<app-carrusel></app-carrusel>
+
+<div class="container mt-5">
+
+    <h2 class="text-center mb-4">Nuestros Productos</h2>
+
+    <div class="row">
+
+        @for (p of productos; track p.nombre) {
+            <div class="col-md-4 mb-4">
+                <app-card [producto]="p"></app-card>
+            </div>
+        }@empty {
+            <p>No hay productos disponibles</p>
+        }
+
+    </div>
+
+
+
+    <div class="text-center mt-4">
+        <a class="btn btn-primary px-4" routerLink="/productos">
+            Ver más productos
+        </a>
+    </div>
+
+
+</div>

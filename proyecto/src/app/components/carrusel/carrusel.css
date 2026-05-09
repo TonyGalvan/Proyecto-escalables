@@ -1,0 +1,9 @@
+.carousel-item {
+  background-color: white;
+  text-align: center;
+}
+
+.carousel-item img {
+  height: 400px;
+  object-fit: contain;
+}
