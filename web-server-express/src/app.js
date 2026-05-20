@@ -1,9 +1,11 @@
-const express = require('express');
+require('dotenv').config(); //cargar las variables de entorno desde el archivo .env
+const Server = require("./config/server");
 
-const app = express();
+const server = new Server();
+server.listen();
 
-app.get('/', (req, res) => {
-    res.send('Hello, World!');
-})
 
-app.listen(8080);
+
+
+
+

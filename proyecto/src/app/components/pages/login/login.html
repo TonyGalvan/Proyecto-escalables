@@ -4,22 +4,26 @@
 
         <h3 class="text-center mb-4">Iniciar Sesión</h3>
 
-        <form>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
 
             <div class="mb-3">
-                <label class="form-label">Correo electrónico</label>
-                <input type="email" class="form-control" placeholder="ejemplo@correo.com">
+                <label for="username" class="form-label">Nombre de usuario</label>
+                <input id="username" type="text" class="form-control" placeholder="Usuario" formControlName="username">
             </div>
 
             <div class="mb-3">
-                <label class="form-label">Contraseña</label>
-                <input type="password" class="form-control" placeholder="********">
+                <label for="password" class="form-label">Contraseña</label>
+                <input id="password" type="password" class="form-control" placeholder="********" formControlName="password">
             </div>
 
 
-            <button type="button" class="btn btn-primary w-100">
+            <button type="submit" class="btn btn-primary w-100" [disabled]="loginForm.invalid">
                 Iniciar sesión
             </button>
+
+            <div class="mt-3 text-danger text-center">
+                {{ errorMsg() ?? "" }}
+            </div>
 
         </form>
 

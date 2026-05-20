@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
+import { CartService } from '../../services/cart-service';
 
 @Component({
   selector: 'app-card',
@@ -8,4 +9,10 @@ import { Component, Input } from '@angular/core';
 })
 export class Card {
   @Input() producto: any;
+
+  private cartService = inject(CartService);
+
+  agregar() {
+    this.cartService.agregarItem(this.producto);
+  }
 }

@@ -1,0 +1,42 @@
+<div class="container py-5">
+
+    <h2 class="fw-bold mb-4">Tu carrito de compras</h2>
+
+    @if (items().length === 0) {
+    <p class="text-muted">Tu carrito está vacío.</p>
+    }
+
+    @for (item of items(); track item._id) {
+    <div class="d-flex align-items-center justify-content-between border-bottom py-3">
+
+        <div class="d-flex align-items-center gap-3">
+            <img [src]="'http://localhost:8080/' + item.imagen" width="80" class="img-thumbnail">
+            <div>
+                <p class="fw-bold mb-1">{{ item.nombre }}</p>
+                <p class="text-success mb-0">
+                    ${{ item.precio }} x {{ item.cantidad }} =
+                    <strong>${{ item.precio * item.cantidad }}</strong>
+                </p>
+            </div>
+        </div>
+
+        <button class="btn btn-info text-white" (click)="eliminarUno(item._id)">
+            Eliminar uno
+        </button>
+
+    </div>
+    }
+
+    @if (items().length > 0) {
+    <div class="text-end mt-4">
+        <h5 class="fw-bold">Total: ${{ total() }}</h5>
+        <div class="d-flex justify-content-end gap-2 mt-2">
+            <button class="btn btn-info text-white" (click)="vaciarCarrito()">Vaciar carrito</button>
+            <button class="btn btn-success">Pagar</button>
+            <button class="btn btn-info text-white" (click)="seguirComprando()">Seguir comprando</button>
+
+        </div>
+    </div>
+    }
+
+</div>

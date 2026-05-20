@@ -1,0 +1,130 @@
+<div class="container py-5">
+
+    <h1 class="text-center fw-bold mb-3">
+        Panel de Administración
+    </h1>
+
+
+
+    <!-- Formulario -->
+
+    <div class="card shadow-sm mb-5">
+
+        <div class="card-body">
+
+            <h2 class="text-center fw-bold mb-4">
+                Agregar Producto
+            </h2>
+
+            <form [formGroup]="productoForm" (ngSubmit)="agregarProducto()">
+
+                <div class="mb-3">
+                    <input type="text" class="form-control" placeholder="Nombre del producto" formControlName="nombre">
+                </div>
+
+                <div class="mb-3">
+                    <textarea class="form-control" rows="4" placeholder="Descripción" formControlName="descripcion">
+                    </textarea>
+                </div>
+
+                <div class="mb-3">
+                    <input type="number" class="form-control" placeholder="Precio" formControlName="precio">
+                </div>
+
+                <div class="mb-4">
+
+                    <label class="form-label fw-bold">
+                        Seleccionar imagen:
+                    </label>
+
+                    <input type="file" class="form-control" (change)="onImagenSeleccionada($event)">
+                </div>
+
+                <button type="submit" class="btn btn-success">
+                    Agregar producto
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <!-- Tabla -->
+
+    <div class="card shadow-sm">
+
+        <div class="card-body">
+
+            <h2 class="text-center fw-bold mb-4">
+                Productos registrados
+            </h2>
+
+            <div class="table-responsive">
+
+                <table class="table align-middle">
+
+                    <thead class="table-light">
+
+                        <tr>
+                            <th>ID</th>
+                            <th>Imagen</th>
+                            <th>Nombre</th>
+                            <th>Precio</th>
+                            <th>Acciones</th>
+                        </tr>
+
+                    </thead>
+
+
+                    @for (producto of productos(); track producto._id) {
+
+                    <tr>
+
+                        <td>
+                            {{ producto._id }}
+                        </td>
+
+                        <td>
+                            <img [src]="'http://localhost:8080/' + producto.imagen" class="img-thumbnail" width="80">
+                        </td>
+
+                        <td>
+                            {{ producto.nombre }}
+                        </td>
+
+                        <td>
+                            ${{ producto.precio }}
+                        </td>
+
+                        <td>
+
+                            <button type="button" class="btn btn-danger"
+                            style="background:red; color:white; border:none;"
+                            (click)="eliminarProducto(producto._id!)"
+                            >Eliminar</button>
+
+
+                        </td>
+
+                    </tr>
+
+                    }@empty {
+
+                    <tr>
+                        <td colspan="5" class="text-center">
+                            No hay productos registrados
+                        </td>
+                    </tr>
+
+                    }
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
