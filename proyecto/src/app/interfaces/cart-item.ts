@@ -4,4 +4,5 @@ export interface CartItem {
     imagen: string;
     precio: number;
     cantidad: number;
+    folio: number;
 }

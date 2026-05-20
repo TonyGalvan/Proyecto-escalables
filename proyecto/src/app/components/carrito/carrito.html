@@ -32,10 +32,21 @@
         <h5 class="fw-bold">Total: ${{ total() }}</h5>
         <div class="d-flex justify-content-end gap-2 mt-2">
             <button class="btn btn-info text-white" (click)="vaciarCarrito()">Vaciar carrito</button>
-            <button class="btn btn-success">Pagar</button>
+            <button class="btn btn-success" (click)="pagar()">Pagar</button>
             <button class="btn btn-info text-white" (click)="seguirComprando()">Seguir comprando</button>
 
+
+
         </div>
+    </div>
+    }
+
+    @if (folio()) {
+    <div class="alert alert-success text-center mt-4 p-4 shadow-sm">
+        <h4 class="fw-bold">¡Orden generada!</h4>
+        <p class="mb-1">Tu número de folio es:</p>
+        <h2 class="fw-bold">#{{ folio() }}</h2>
+        <p class="text-muted mt-2">Guarda tu folio para rastrear tu pedido.</p>
     </div>
     }
 

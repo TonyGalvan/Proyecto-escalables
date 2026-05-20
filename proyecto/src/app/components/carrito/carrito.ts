@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { CartService } from '../../services/cart-service';
 import { Router } from '@angular/router';
 @Component({
@@ -15,6 +15,9 @@ export class Carrito {
   items = this.cartService.items;
   total = this.cartService.total;
 
+  folio = signal<number | null>(null);
+
+
   eliminarUno(id: string) {
     this.cartService.eliminarUno(id);
   }
@@ -23,10 +26,16 @@ export class Carrito {
     this.cartService.vaciarCarrito();
   }
 
-  
+
 
   seguirComprando() {
     this.router.navigate(['/productos']);
+  }
+
+  pagar() {
+    const numeroFolio = Math.floor(10000000 + Math.random() * 90000000);
+    this.folio.set(numeroFolio);
+    this.cartService.vaciarCarrito();
   }
 
 }
