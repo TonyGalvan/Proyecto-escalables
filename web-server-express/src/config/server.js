@@ -13,6 +13,8 @@ class Server {
         this.usersPath = "/api/users";
         this.productosPath = "/api/productos";
         this.authPath = "/api/auth";
+        this.favoritosPath = "/api/favoritos";
+        this.pedidosPath = "/api/pedidos";
 
         this.app.use(express.json());
         this.app.use(cors());
@@ -30,6 +32,9 @@ class Server {
         this.app.use(this.usersPath, require("../routes/users.routes"));
         this.app.use(this.productosPath, require("../routes/productos.routes"));
         this.app.use(this.authPath, require("../routes/auth.routes"));
+        this.app.use(this.favoritosPath, require("../routes/favoritos.routes"));
+        this.app.use(this.pedidosPath, require("../routes/pedidos.routes"));
+
 
         this.app.use(
             '/uploads',

@@ -64,5 +64,12 @@ export class AuthService {
     this.router.navigate(['/home']);
   }
 
+  getUser(): { uid: string, username: string } | null {
+    const token = this._token();
+    if (!token) return null;
+    const payload = JSON.parse(atob(token.split('.')[1]));
+    return { uid: payload.uid, username: payload.username };
+  }
+
 
 }

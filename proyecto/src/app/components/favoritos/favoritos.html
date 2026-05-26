@@ -1,0 +1,85 @@
+<div class="container py-5">
+
+    <h2 class="fw-bold mb-4 text-center mt-5">Mis Pedidos</h2>
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table align-middle">
+
+                    <thead class="table-light">
+                        <tr>
+                            <th>Folio</th>
+                            <th>Productos</th>
+                            <th>Total comprado</th>
+                            <th>Total a pagar</th>
+                            <th>Fecha</th>
+                        </tr>
+                    </thead>
+
+                    @for (pedido of pedidos(); track pedido._id) {
+                    <tr class="border-bottom py-2">
+                        <td>#{{ pedido.folio }}</td>
+                        <td>
+                            @for (p of pedido.productos; track p.nombre) {
+                            <p class="mb-0">{{ p.nombre }} x{{ p.cantidad }} — ${{ p.precio }}</p>
+                            }
+                        </td>
+                        <td>{{ pedido.totalProductos }} productos</td>
+                        <td>${{ pedido.total }}</td>
+                        <td>{{ pedido.createdAt | date:'dd/MM/yyyy' }}</td>
+                    </tr>
+                    } @empty {
+                    <tr>
+                        <td colspan="5" class="text-center">No tienes pedidos registrados</td>
+                    </tr>
+                    }
+
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="fw-bold mb-4 text-center mt-5">Mis Favoritos</h2>
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table align-middle">
+
+                    <thead class="table-light">
+                        <tr>
+                            <th>Producto</th>
+                            <th>Nombre</th>
+                            <th>Precio</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+
+                    @for (favorito of favoritos(); track favorito._id) {
+                    <tr>
+                        <td>
+                            <img [src]="'http://localhost:8080/' + favorito.imagen" class="img-thumbnail" width="80">
+                        </td>
+                        <td>{{ favorito.nombre }}</td>
+                        <td>${{ favorito.precio }}</td>
+                        <td>
+                            <button type="button" class="btn btn-danger" (click)="eliminar(favorito._id)">
+                                Eliminar de favoritos
+                            </button>
+                        </td>
+                    </tr>
+                    } @empty {
+                    <tr>
+                        <td colspan="4" class="text-center">
+                            No tienes productos en favoritos
+                        </td>
+                    </tr>
+                    }
+
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>

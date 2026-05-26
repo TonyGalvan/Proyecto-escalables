@@ -29,6 +29,11 @@
           <a class="nav-link" routerLink="/productos">Productos</a>
         </li>
 
+        @if(authService.isLoggedIn()){
+          <li class="nav-item">
+          <a class="nav-link" routerLink="/favoritos">Mis Pedidos</a>
+        }
+
         @if(!authService.isLoggedIn()) {
 
         <li class="nav-item">
@@ -53,6 +58,8 @@
             <i class="bi bi-cart"></i>
           </a>
         </li>
+
+        
 
         @if(authService.isAdmin()) {
         <li class="nav-item">

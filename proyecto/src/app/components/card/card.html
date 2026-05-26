@@ -15,8 +15,13 @@
         ${{ producto?.precio }}
     </h4>
 
-    <button class="btn btn-danger btn-carrito" (click)="agregar()">
-        Agregar al carrito
-    </button>
+    <div class="d-flex justify-content-center gap-2">
+        <button class="btn btn-danger btn-carrito" (click)="agregar()">
+            Agregar al carrito
+        </button>
+        <button class="btn btn-danger" title="Agregar a favoritos" (click)="agregarFavorito()">
+            <i class="bi bi-heart"></i>
+        </button>
+    </div>
 
 </div>

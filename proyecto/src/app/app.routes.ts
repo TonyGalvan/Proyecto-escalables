@@ -9,6 +9,7 @@ import { authGuard } from './guards/auth-guard';
 import { loginGuard } from './guards/login-guard';
 import { adminGuard } from './guards/admin-guard';
 import { Carrito } from './components/carrito/carrito';
+import { Favoritos } from './components/favoritos/favoritos';
 
 export const routes: Routes = [
     { path: "", redirectTo: "home", pathMatch: 'full' },
@@ -19,4 +20,5 @@ export const routes: Routes = [
     { path: 'carrito', component: Carrito, canActivate: [authGuard] },
     { path: 'login', component: Login, canActivate: [loginGuard]},
     { path: 'admin-productos', component: AdminProductos, canActivate: [authGuard, adminGuard] },
+    { path: 'favoritos', component: Favoritos, canActivate: [authGuard] },
 ];

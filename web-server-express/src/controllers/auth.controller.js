@@ -33,6 +33,7 @@ const login = async (req = request, res = response) => {
 
         //Generar JWT
         jwt.sign({
+            uid: user._id,
             username,
             role: user.role
         }, process.env.SECRET_KEY, { 
