@@ -1,0 +1,50 @@
+[{
+  "_id": {
+    "$oid": "6a0d555d19ac6ff4f423616d"
+  },
+  "nombre": "Pastel 3 Leches Rosetones Rectangular Grande",
+  "imagen": "uploads/pastel.jpg",
+  "descripcion": "Pan de chocolate, relleno de crema y mermelada de fresa, cubierto de crema de chocolate y decorado con fresa natural.",
+  "precio": 250,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a0d55a819ac6ff4f423616e"
+  },
+  "nombre": "Pastel 3 Leches 4 Estaciones de Fruta Rectangular Grande",
+  "imagen": "uploads/pastel_3.jpg",
+  "descripcion": "Pan de vainilla de 3 leches, relleno de crema de nata y almendra fileteada, cubierto de fruta natural.",
+  "precio": 300,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a0d560019ac6ff4f423616f"
+  },
+  "nombre": "Pastel Americano Hojuelas Blanco Obscuro Grande",
+  "imagen": "uploads/pastel_5.jpg",
+  "descripcion": "Pan de vainilla y chocolate, relleno de crema de nata y cereza natural, cubierto de crema de nata y decorado con hojuelas de chocolate.",
+  "precio": 300,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a1105113476f2fc836e2fd9"
+  },
+  "nombre": "Pastel Selva Combinado de 3 Leches",
+  "imagen": "uploads/pastel_6.jpg",
+  "descripcion": "Pastel Selva de 3 leches 8 Pulgadas.",
+  "precio": 300,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a1105313476f2fc836e2fda"
+  },
+  "nombre": "Pastel Americano con Hojuelas de Chocolate Grande",
+  "imagen": "uploads/pastel_7.jpg",
+  "descripcion": "Pan americano chocolate, relleno con crema de nata y cereza natural, cubierto con crema de chocolate y hojuelas de chocolate.",
+  "precio": 250,
+  "__v": 0
+}]
